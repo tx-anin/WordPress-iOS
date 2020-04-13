@@ -1,7 +1,7 @@
 import Foundation
 import Gridicons
 import WordPressShared.WPStyleGuide
-
+// TODO: - READERNAV - This (and the related xib) might need to be removed once the new Reader Tab Navigation is stable
 @objc open class ReaderFollowedSitesStreamHeader: UIView, ReaderStreamHeader {
     @IBOutlet fileprivate weak var borderedView: UIView!
     @IBOutlet fileprivate weak var imageView: UIImageView!
@@ -33,10 +33,10 @@ import WordPressShared.WPStyleGuide
         titleLabel.textColor = .neutral(.shade70)
         titleLabel.text = NSLocalizedString("Manage", comment: "Button title. Tapping lets the user manage the sites they follow.")
 
-        disclosureIcon.image = Gridicon.iconOfType(.chevronRight, withSize: disclosureIcon.frame.size).imageFlippedForRightToLeftLayoutDirection()
+        disclosureIcon.image = UIImage.gridicon(.chevronRight, size: disclosureIcon.frame.size).imageFlippedForRightToLeftLayoutDirection()
         disclosureIcon.tintColor = .neutral(.shade30)
 
-        imageView.image = Gridicon.iconOfType(.cog)
+        imageView.image = .gridicon(.cog)
         imageView.tintColor = UIColor.white
     }
 

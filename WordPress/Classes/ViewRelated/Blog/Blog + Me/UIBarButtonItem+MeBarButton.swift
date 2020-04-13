@@ -5,7 +5,7 @@ import UIKit
 /// Add a UIBarButtonItem to the navigation bar that  presents the Me scene.
 extension BlogDetailsViewController {
     @objc
-    private func presentHandler() {
+    func presentHandler() {
         meScenePresenter.present(on: self, animated: true, completion: nil)
     }
 
@@ -36,64 +36,86 @@ extension BlogListViewController {
 private extension UIBarButtonItem {
     /// gravatar configuration parameters
     struct GravatarConfiguration {
-        static let radius: CGFloat = 24.0
-        static let fallBackImage = Gridicon.iconOfType(.userCircle)
+        static let radius: CGFloat = 32
+        static let tappableWidth: CGFloat = 44
+        static let fallBackImage = UIImage.gridicon(.user)
     }
 
     /// Assign the gravatar CircularImageView to the customView property and attach the passed target/action.
-    /// If email is nil, fall back to the gravatar icon. Adds `Me` accessibility traits to the button
     convenience init(email: String?, style: UIBarButtonItem.Style = .plain, target: Any?, action: Selector?) {
-        guard let email = email else {
-            self.init(image: GravatarConfiguration.fallBackImage,
-                      style: style,
-                      target: target,
-                      action: action)
-            makeMeButtonAccessible()
-            return
-        }
         self.init()
         makeMeButtonAccessible()
-
-        customView = makeGravatarView(with: email)
-        addTapToCustomView(target: target, action: action)
+        customView = makeGravatarTappableView(with: email, target: target, action: action)
     }
 
     /// Create the gravatar CircluarImageView with a fade animation on tap.
-    func makeGravatarView(with email: String) -> CircularImageView {
-        let gravatarImageView = CircularImageView()
-        gravatarImageView.isUserInteractionEnabled = true
-        gravatarImageView.animatesTouch = true
+    /// If no valid email is provided, fall back to the circled user icon
+    func makeGravatarTappableView(with email: String?, target: Any?, action: Selector?) -> UIView {
+        let gravatarImageView = GravatarButtonView(tappableWidth: GravatarConfiguration.tappableWidth)
 
-        gravatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint(item: gravatarImageView,
+        gravatarImageView.isUserInteractionEnabled = true
+        setSize(of: gravatarImageView, size: GravatarConfiguration.radius)
+        gravatarImageView.contentMode = .scaleAspectFit
+        gravatarImageView.setBorder()
+
+        if let email = email {
+            gravatarImageView.downloadGravatarWithEmail(email, placeholderImage: GravatarConfiguration.fallBackImage)
+        } else {
+            gravatarImageView.image = GravatarConfiguration.fallBackImage
+        }
+
+        let tapRecognizer = UITapGestureRecognizer(target: target, action: action)
+        gravatarImageView.addGestureRecognizer(tapRecognizer)
+
+        return embedInView(gravatarImageView)
+    }
+
+    /// embeds a view in a transparent view, vertically centered and aligned to the right
+    func embedInView(_ imageView: UIImageView) -> UIView {
+        let view = UIView()
+        setSize(of: view, size: GravatarConfiguration.tappableWidth)
+        view.addSubview(imageView)
+        NSLayoutConstraint(item: imageView,
+                           attribute: .centerY,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .centerY,
+                           multiplier: 1,
+                           constant: 0)
+            .isActive = true
+
+        NSLayoutConstraint(item: imageView,
+                           attribute: .trailingMargin,
+                       relatedBy: .equal,
+                       toItem: view,
+                       attribute: .trailingMargin,
+                       multiplier: 1,
+                       constant: 0)
+        .isActive = true
+
+        return view
+    }
+
+    /// constrains a squared UIImageView to a set size
+    func setSize(of view: UIView, size: CGFloat) {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: view,
                            attribute: .width,
                            relatedBy: .equal,
                            toItem: nil,
                            attribute: .notAnAttribute,
                            multiplier: 1,
-                           constant: GravatarConfiguration.radius)
+                           constant: size)
             .isActive = true
 
-        NSLayoutConstraint(item: gravatarImageView,
+        NSLayoutConstraint(item: view,
                            attribute: .height,
                            relatedBy: .equal,
                            toItem: nil,
                            attribute: .notAnAttribute,
                            multiplier: 1,
-                           constant: GravatarConfiguration.radius)
+                           constant: size)
             .isActive = true
-
-        gravatarImageView.contentMode = .scaleAspectFit
-
-        gravatarImageView.downloadGravatarWithEmail(email, placeholderImage: GravatarConfiguration.fallBackImage)
-        return gravatarImageView
-    }
-
-    /// adds a 'tap' action to customView
-    func addTapToCustomView(target: Any?, action: Selector?) {
-        customView?.isUserInteractionEnabled = true
-        let tapRecognizer = UITapGestureRecognizer(target: target, action: action)
-        customView?.addGestureRecognizer(tapRecognizer)
     }
 }
 

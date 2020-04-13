@@ -12,7 +12,7 @@ class PostPreviewGenerator: NSObject {
     @objc let post: AbstractPost
     @objc var previewURL: URL?
     @objc weak var delegate: PostPreviewGeneratorDelegate?
-    fileprivate let authenticator: WebViewAuthenticator?
+    fileprivate let authenticator: RequestAuthenticator?
 
     @objc convenience init(post: AbstractPost) {
         self.init(post: post, previewURL: nil)
@@ -21,7 +21,7 @@ class PostPreviewGenerator: NSObject {
     @objc init(post: AbstractPost, previewURL: URL? = nil) {
         self.post = post
         self.previewURL = previewURL
-        authenticator = WebViewAuthenticator(blog: post.blog)
+        authenticator = RequestAuthenticator(blog: post.blog)
         super.init()
     }
 
@@ -39,10 +39,6 @@ class PostPreviewGenerator: NSObject {
 
     @objc func previewRequestFailed(reason: String) {
         delegate?.previewFailed(self, message: NSLocalizedString("There has been an error while trying to reach your site.", comment: "An error message."))
-    }
-
-    @objc func interceptRedirect(request: URLRequest) -> URLRequest? {
-        return authenticator?.interceptRedirect(request: request)
     }
 }
 
@@ -91,7 +87,7 @@ private extension PostPreviewGenerator {
         case .draft, .publishPrivate, .pending, .scheduled, .publish:
             return true
         default:
-            return post.blog.isPrivate()
+            return post.isPrivateAtWPCom()
         }
     }
 

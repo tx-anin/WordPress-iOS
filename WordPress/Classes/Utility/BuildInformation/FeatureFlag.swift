@@ -5,12 +5,12 @@ enum FeatureFlag: Int, CaseIterable {
     case jetpackDisconnect
     case debugMenu
     case offlinePages
-    case postPreview
     case postReblogging
     case unifiedAuth
     case quickActions
     case meMove
     case floatingCreateButton
+    case newReaderNavigation
 
     /// Returns a boolean indicating if the feature is enabled
     var enabled: Bool {
@@ -26,8 +26,6 @@ enum FeatureFlag: Int, CaseIterable {
                                                   .a8cBranchTest]
         case .offlinePages:
             return BuildConfiguration.current == .localDeveloper
-        case .postPreview:
-            return true
         case .postReblogging:
             return true
         case .unifiedAuth:
@@ -35,9 +33,11 @@ enum FeatureFlag: Int, CaseIterable {
         case .quickActions:
             return true
         case .meMove:
-            return BuildConfiguration.current == .localDeveloper
+            return BuildConfiguration.current ~= [.localDeveloper, .a8cBranchTest, .a8cPrereleaseTesting]
         case .floatingCreateButton:
-            return BuildConfiguration.current == .localDeveloper
+            return BuildConfiguration.current ~= [.localDeveloper, .a8cBranchTest, .a8cPrereleaseTesting]
+        case .newReaderNavigation:
+            return false
         }
     }
 }
@@ -62,8 +62,6 @@ extension FeatureFlag: OverrideableFlag {
             return "Debug menu"
         case .offlinePages:
             return "Offline Pages"
-        case .postPreview:
-            return "Post preview redesign"
         case .postReblogging:
             return "Post Reblogging"
         case .unifiedAuth:
@@ -74,6 +72,8 @@ extension FeatureFlag: OverrideableFlag {
             return "Move the Me Scene to My Site"
         case .floatingCreateButton:
             return "Floating Create Button"
+        case .newReaderNavigation:
+            return "New Reader Navigation"
         }
     }
 
@@ -82,6 +82,8 @@ extension FeatureFlag: OverrideableFlag {
         case .debugMenu:
             return false
         case .floatingCreateButton:
+            return false
+        case .newReaderNavigation:
             return false
         default:
             return true

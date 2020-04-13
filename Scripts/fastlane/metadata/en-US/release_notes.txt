@@ -1,16 +1,15 @@
-Commenting:
-- Fixed a bug causing text selection to happen on the wrong line when editing comments.
-- Fixed a bug causing HTML markup to display in comment content.
-- Fixed an issue causing comments not to appear in the Reader.
+New blocks! Welcome the Latest Posts block, for highlighting your new stuff in posts and pages.
 
-Publishing:
-- You can now crop, zoom in/out, and rotate images in a post.
-- The app now includes a desktop preview mode on iPhone, and Mobile preview on iPad. Post preview also has new navigation, “Open in Safari,” and Share options.
-- Lots of block editor improvements: Added a long-press icon for inserting blocks before/after and an “Edit” button overlay on selected image blocks. The editor will retry to load images after connectivity issues. And the Gallery block now has support for image size options.
-- We fixed a bug that could disable comments on a draft post when previewing it.
+When you create a new page, we’ll show you a few templates — pick one, and we’ll add all the necessary blocks to your page to get you started quickly.
 
-Signup and Login
-- Signup or login via magic link now supports multiple email clients. Tapping on the “Open Email” button will present a list of installed email clients to choose from.
+We fixed up a few block editor issues; no more crashes when pasting in HTML content or missing Quote block borders in Dark Mode.
 
-Reader
-- The apps now support post reblogging! Tap the new “reblog” button in the post action bar to choose which of your sites to post to and open the editor of your choice with pre-populated content from the original post.
+If you scheduled a post to publish in the past, it would display as “scheduled” instead of “published.” That’s fixed, along with an issue where dates displayed incorrectly if your site’s timezone wasn’t the same as your device’s timezone.
+
+We fixed some UI inconsistencies in Dark Mode and with the Reader toolbar.
+
+You can use @-mentions when writing comments in fullscreen mode.
+
+Sometimes Signup and Login Magic Link emails would go to your spam folder, so we added a note to the confirmation screen suggesting that folks check their spam/junk folders if they don’t see the email promptly.
+
+Stay safe, everyone.

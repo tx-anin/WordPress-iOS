@@ -1,3 +1,4 @@
+import AutomatticTracks
 import UIKit
 import Gridicons
 
@@ -210,9 +211,14 @@ class PostCardCell: UITableViewCell, ConfigurablePostView {
             return
         }
 
+        let host = MediaHost(with: post) { error in
+            // We'll log the error, so we know it's there, but we won't halt execution.
+            CrashLogging.logError(error)
+        }
+
         if currentLoadedFeaturedImage != url.absoluteString {
             currentLoadedFeaturedImage = url.absoluteString
-            imageLoader.loadImage(with: url, from: post, preferredSize: preferredSize)
+            imageLoader.loadImage(with: url, from: host, preferredSize: preferredSize)
         }
     }
 
@@ -370,7 +376,7 @@ class PostCardCell: UITableViewCell, ConfigurablePostView {
 
     private func setupLabels() {
         retryButton.setTitle(NSLocalizedString("Retry", comment: "Label for the retry post upload button. Tapping attempts to upload the post again."), for: .normal)
-        retryButton.setImage(Gridicon.iconOfType(.refresh, withSize: CGSize(width: 18, height: 18)), for: .normal)
+        retryButton.setImage(.gridicon(.refresh, size: CGSize(width: 18, height: 18)), for: .normal)
 
         cancelAutoUploadButton.setTitle(NSLocalizedString("Cancel", comment: "Label for the auto-upload cancelation button in the post list. Tapping will prevent the app from auto-uploading the post."),
                                         for: .normal)

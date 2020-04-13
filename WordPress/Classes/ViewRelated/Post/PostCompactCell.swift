@@ -1,3 +1,4 @@
+import AutomatticTracks
 import UIKit
 import Gridicons
 
@@ -86,7 +87,7 @@ class PostCompactCell: UITableViewCell, ConfigurablePostView {
         timestampLabel.textColor = .textSubtle
         menuButton.tintColor = .textSubtle
 
-        menuButton.setImage(Gridicon.iconOfType(.ellipsis), for: .normal)
+        menuButton.setImage(.gridicon(.ellipsis), for: .normal)
 
         featuredImageView.layer.cornerRadius = Constants.imageRadius
 
@@ -109,7 +110,13 @@ class PostCompactCell: UITableViewCell, ConfigurablePostView {
     private func configureFeaturedImage() {
         if let post = post, let url = post.featuredImageURL {
             featuredImageView.isHidden = false
-            imageLoader.loadImage(with: url, from: post, preferredSize: CGSize(width: featuredImageView.frame.width, height: featuredImageView.frame.height))
+
+            let host = MediaHost(with: post, failure: { error in
+                // We'll log the error, so we know it's there, but we won't halt execution.
+                CrashLogging.logError(error)
+            })
+
+            imageLoader.loadImage(with: url, from: host, preferredSize: CGSize(width: featuredImageView.frame.width, height: featuredImageView.frame.height))
         } else {
             featuredImageView.isHidden = true
         }

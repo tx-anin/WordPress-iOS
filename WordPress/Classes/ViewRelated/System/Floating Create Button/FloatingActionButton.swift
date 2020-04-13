@@ -1,4 +1,12 @@
+/// A rounded button with a shadow intended for use as a "Floating Action Button"
 class FloatingActionButton: UIButton {
+
+    private var shadowLayer: CALayer?
+
+    private enum Constants {
+        static let shadowColor: UIColor = UIColor.gray(.shade20)
+        static let shadowRadius: CGFloat = 3
+    }
 
     convenience init(image: UIImage) {
         self.init(frame: .zero)
@@ -9,9 +17,8 @@ class FloatingActionButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        backgroundColor = .accent
+        layer.backgroundColor = UIColor.accent.cgColor
         tintColor = .white
-
         refreshShadow()
     }
 
@@ -19,15 +26,16 @@ class FloatingActionButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        layer.cornerRadius = frame.size.width / 2
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+
+        layer.cornerRadius = rect.size.width / 2
     }
 
     private func refreshShadow() {
-        layer.shadowColor = UIColor.gray(.shade20).cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 0)
-        layer.shadowRadius = 3
+        layer.shadowColor = Constants.shadowColor.cgColor
+        layer.shadowOffset = .zero
+        layer.shadowRadius = Constants.shadowRadius
         if #available(iOS 12.0, *) {
             layer.shadowOpacity = traitCollection.userInterfaceStyle == .light ? 1 : 0
         } else {

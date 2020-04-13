@@ -420,7 +420,7 @@
 
 - (BOOL)shouldPublishImmediately
 {
-    return [self originalIsDraft] && ![self hasFuturePublishDate];
+    return [self originalIsDraft] && [self dateCreatedIsNilOrEqualToDateModified];
 }
 
 - (NSString *)authorNameForDisplay
@@ -475,9 +475,9 @@
     return [self.blog supports:BlogFeatureStats] && [self hasRemote];
 }
 
-- (BOOL)isPrivate
+- (BOOL)isPrivateAtWPCom
 {
-    return self.blog.isPrivate;
+    return self.blog.isPrivateAtWPCom;
 }
 
 - (BOOL)isMultiAuthorBlog

@@ -1,3 +1,4 @@
+import AutomatticTracks
 import UIKit
 import WordPressShared
 import Gridicons
@@ -81,17 +82,27 @@ class ReaderCommentCell: UITableViewCell {
         super.awakeFromNib()
 
         setupContentView()
-        setupReplyButton()
-        setupLikeButton()
         applyStyles()
     }
 
+    override func tintColorDidChange() {
+        // Update colors when toggling light/dark mode.
+        super.tintColorDidChange()
+        applyStyles()
+    }
 
     // MARK: = Setup
 
     @objc func applyStyles() {
+
+        setupReplyButton()
+        setupLikeButton()
+
         WPStyleGuide.applyReaderCardSiteButtonStyle(authorButton)
         WPStyleGuide.applyReaderCardBylineLabelStyle(timeLabel)
+
+        WPStyleGuide.applyReaderActionButtonStyle(replyButton)
+        WPStyleGuide.applyReaderActionButtonStyle(likeButton)
 
         authorButton.titleLabel?.lineBreakMode = .byTruncatingTail
 
@@ -110,28 +121,24 @@ class ReaderCommentCell: UITableViewCell {
     }
 
     @objc func setupReplyButton() {
-        let icon = Gridicon.iconOfType(.reply, withSize: Constants.buttonSize).rotate180Degrees()
+        let icon = UIImage.gridicon(.reply, size: Constants.buttonSize).rotate180Degrees()
         replyButton.setImage(icon, for: .normal)
         replyButton.setImage(icon, for: .highlighted)
 
         let title = NSLocalizedString("Reply", comment: "Verb. Title of the Reader comments screen reply button. Tapping the button sends a reply to a comment or post.")
         replyButton.setTitle(title, for: .normal)
-
-        WPStyleGuide.applyReaderActionButtonStyle(replyButton)
     }
 
 
     @objc func setupLikeButton() {
         let size = Constants.buttonSize
-        let star = Gridicon.iconOfType(.star, withSize: size)
-        let starOutline = Gridicon.iconOfType(.starOutline, withSize: size)
+        let star = UIImage.gridicon(.star, size: size)
+        let starOutline = UIImage.gridicon(.starOutline, size: size)
 
         likeButton.setImage(starOutline, for: .normal)
         likeButton.setImage(star, for: .highlighted)
         likeButton.setImage(star, for: .selected)
         likeButton.setImage(star, for: [.selected, .highlighted])
-
-        WPStyleGuide.applyReaderActionButtonStyle(likeButton)
     }
 
     // MARK: - Configuration
@@ -199,7 +206,11 @@ class ReaderCommentCell: UITableViewCell {
             return
         }
 
-        textView.isPrivate = comment.isPrivateContent()
+        textView.mediaHost = MediaHost(with: comment.blog, failure: { error in
+            // We'll log the error, so we know it's there, but we won't halt execution.
+            CrashLogging.logError(error)
+        })
+
         // Use `content` vs `contentForDisplay`. Hierarchcial comments are already
         // correctly formatted during the sync process.
         textView.attributedText = attributedString

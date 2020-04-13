@@ -5,14 +5,12 @@ class TabNavComponent: BaseScreen {
 
     let mySitesTabButton: XCUIElement
     let readerTabButton: XCUIElement
-    let writeTabButton: XCUIElement
     let notificationsTabButton: XCUIElement
 
     init() {
         let tabBars = XCUIApplication().tabBars["Main Navigation"]
         mySitesTabButton = tabBars.buttons["mySitesTabButton"]
         readerTabButton = tabBars.buttons["readerTabButton"]
-        writeTabButton = XCUIApplication().buttons["floatingCreateButton"]
         notificationsTabButton = tabBars.buttons["notificationsTabButton"]
         super.init(element: mySitesTabButton)
     }
@@ -29,7 +27,7 @@ class TabNavComponent: BaseScreen {
     func gotoMySiteScreen() -> MySiteScreen {
         // Avoid transitioning to the sites list if MySites is already on screen
         if !MySiteScreen.isVisible {
-            mySitesTabButton.tap()
+            gotoMySitesScreen().switchToSite(withTitle: "infocusphotographers.com")
         }
         return MySiteScreen()
     }
@@ -42,12 +40,18 @@ class TabNavComponent: BaseScreen {
     }
 
     func gotoAztecEditorScreen() -> AztecEditorScreen {
-        writeTabButton.tap()
+        let mySiteScreen = gotoMySiteScreen()
+        let actionSheet = mySiteScreen.gotoCreateSheet()
+        actionSheet.gotoBlogPost()
+
         return AztecEditorScreen(mode: .rich)
     }
 
     func gotoBlockEditorScreen() -> BlockEditorScreen {
-        writeTabButton.tap()
+        let mySite = gotoMySiteScreen()
+        let actionSheet = mySite.gotoCreateSheet()
+        actionSheet.gotoBlogPost()
+
         return BlockEditorScreen()
     }
 

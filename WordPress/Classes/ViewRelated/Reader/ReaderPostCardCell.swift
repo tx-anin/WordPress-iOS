@@ -1,7 +1,7 @@
+import AutomatticTracks
 import Foundation
 import WordPressShared
 import Gridicons
-
 
 @objc public protocol ReaderPostCellDelegate: NSObjectProtocol {
     func readerCell(_ cell: ReaderPostCardCell, headerActionForProvider provider: ReaderPostContentProvider)
@@ -201,7 +201,7 @@ import Gridicons
     fileprivate func setupVisitButton() {
         let size = CGSize(width: 20, height: 20)
         let title = NSLocalizedString("Visit", comment: "Verb. Button title.  Tap to visit a website.")
-        let icon = Gridicon.iconOfType(.external, withSize: size)
+        let icon = UIImage.gridicon(.external, size: size)
         let tintedIcon = icon.imageFlippedForRightToLeftLayoutDirection()
         let highlightIcon = icon.imageFlippedForRightToLeftLayoutDirection()
 
@@ -212,7 +212,7 @@ import Gridicons
 
     fileprivate func setupMenuButton() {
         let size = CGSize(width: 20, height: 20)
-        let icon = Gridicon.iconOfType(.ellipsis, withSize: size)
+        let icon = UIImage.gridicon(.ellipsis, size: size)
         let tintedIcon = icon.imageWithTintColor(.neutral(.shade30))
         let highlightIcon = icon.imageWithTintColor(.neutral)
 
@@ -286,7 +286,7 @@ import Gridicons
     }
 
     fileprivate func configureHeader() {
-        guard let provider = contentProvider else {
+        guard let contentProvider = contentProvider else {
             return
         }
 
@@ -294,24 +294,34 @@ import Gridicons
         avatarImageView.image = nil
 
         let size = avatarImageView.frame.size.width * UIScreen.main.scale
-        if let url = provider.siteIconForDisplay(ofSize: Int(size)) {
-            if provider.isPrivate() {
-                let request = PrivateSiteURLProtocol.requestForPrivateSite(from: url)
-                avatarImageView.downloadImage(usingRequest: request)
-            } else {
-                avatarImageView.downloadImage(from: url)
-            }
-            avatarImageView.isHidden = false
+        if let url = contentProvider.siteIconForDisplay(ofSize: Int(size)) {
 
+            let mediaRequestAuthenticator = MediaRequestAuthenticator()
+            let host = MediaHost(with: contentProvider, failure: { error in
+                // We'll log the error, so we know it's there, but we won't halt execution.
+                CrashLogging.logError(error)
+            })
+
+            mediaRequestAuthenticator.authenticatedRequest(
+                for: url,
+                from: host,
+                onComplete: { request in
+                    self.avatarImageView.downloadImage(usingRequest: request)
+                    self.avatarImageView.isHidden = false
+            },
+                onFailure: { error in
+                    CrashLogging.logError(error)
+                    self.avatarImageView.isHidden = true
+            })
         } else {
             avatarImageView.isHidden = true
         }
 
         var arr = [String]()
-        if let authorName = provider.authorForDisplay() {
+        if let authorName = contentProvider.authorForDisplay() {
             arr.append(authorName)
         }
-        if let blogName = provider.blogNameForDisplay() {
+        if let blogName = contentProvider.blogNameForDisplay() {
             arr.append(blogName)
         }
         blogNameLabel.text = arr.joined(separator: ", ")
@@ -346,7 +356,7 @@ import Gridicons
     }
 
     fileprivate func configureFeaturedImage(_ featuredImageURL: URL) {
-        guard let content = contentProvider else {
+        guard let contentProvider = contentProvider else {
             return
         }
 
@@ -354,8 +364,11 @@ import Gridicons
         currentLoadedCardImageURL = featuredImageURL.absoluteString
         featuredImageDesiredWidth = featuredImageView.frame.width
         let size = CGSize(width: featuredImageDesiredWidth, height: featuredMediaHeightConstraintConstant)
-        let postInfo = ReaderCardContent(provider: content)
-        imageLoader.loadImage(with: featuredImageURL, from: postInfo, preferredSize: size)
+        let host = MediaHost(with: contentProvider, failure: { error in
+            // We'll log the error, so we know it's there, but we won't halt execution.
+            CrashLogging.logError(error)
+        })
+        imageLoader.loadImage(with: featuredImageURL, from: host, preferredSize: size)
     }
 
     fileprivate func configureTitle() {

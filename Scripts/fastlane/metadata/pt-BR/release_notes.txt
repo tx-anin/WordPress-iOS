@@ -1,16 +1,15 @@
-Comentários:
-– Corrigido um erro que fazia com que a seleção de texto ocorresse na linha errada ao se editar comentários.
-– Corrigido um erro que fazia com que o código HTML aparecesse no conteúdo dos comentários.
-– Corrigido um erro que fazia com que os comentários não aparecessem no Leitor.
+Novos blocos! Desejem boas-vindas para o bloco "Posts recentes", que mostra seu conteúdo recente em posts e páginas.
 
-Publicação:
-– Agora você pode recortar, aumentar/reduzir o zoom e rotacionar as imagens em um post.
-– O aplicativo agora inclui um modo para pré-visualizar no iPhone como ficaria no computador e uma prévia em dispositivos móveis para o iPad. A prévia de posts também inclui uma nova navegação e as opções "Abrir no Safari" e "Compartilhar".
-– Um monte de melhorias no Editor de Blocos: adicionado um ícone de toque-longo para inserir blocos antes/depois e um botão "Editar" sobreposto a blocos de imagens que estiverem selecionados. O editor irá tentar recarregar as imagens se houver problemas de conexão. E o bloco Galeria agora oferece opções de tamanho de imagens.
-– Corrigimos um erro que poderia desativar os comentários enquanto se estivesse visualizando um rascunho.
+Ao criar uma nova página, mostraremos alguns modelos. Escolha um modelo e os blocos necessários serão adicionados à página automaticamente para agilizar o processo de criação.
 
-Registro e acesso:
-- O registro e acesso via link mágico agora suporta múltiplos clientes de email. Tocando-se no botão "Abrir Email" irá se apresentar uma lista de aplicativos instalados para o usuário escolher.
+Corrigimos alguns erros no editor de blocos. Você não verá mais travamentos ao colar conteúdo HTML ou falta de bordas no bloco de Citação no modo escuro.
 
-Leitor:
-- Os aplicativos agora suportam republicação de posts! Toque no novo botão "Reblog" na barra de funções do post para escolher em qual dos seus sites você quer publicar e abrir o editor de sua preferência com um conteúdo copiado do post original.
+Ao agendar um post para ser publicado no passado, ele era exibido como agendado ao invés de publicado. Corrigimos esse comportamento e também um erro na exibição de datas quando o fuso horário do site não é o mesmo do dispositivo.
+
+Corrigimos inconsistências na interface no modo escuro e na barra do Leitor.
+
+Agora você pode usar @-menções ao digitar comentários no modo de tela cheia.
+
+Como os e-mails de inscrição e login podem ir para sua pasta de spam, adicionamos uma nota na tela de confirmação para lembrar nossos usuários de verificarem a pasta de spam caso o e-mail não seja exibido na pasta principal.
+
+Continuem em segurança e lavem as mãos :-)

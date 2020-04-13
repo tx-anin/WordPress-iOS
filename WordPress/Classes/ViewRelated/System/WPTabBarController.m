@@ -68,6 +68,8 @@ static CGFloat const WPTabBarIconSize = 32.0f;
 @property (nonatomic, strong) UIImage *meTabBarImageUnreadUnselected;
 @property (nonatomic, strong) UIImage *meTabBarImageUnreadSelected;
 
+@property (nonatomic, strong) CreateButtonCoordinator *createButtonCoordinator;
+
 @end
 
 @implementation WPTabBarController
@@ -109,7 +111,7 @@ static CGFloat const WPTabBarIconSize = 32.0f;
         [self setViewControllers:[self tabViewControllers]];
 
         [self setSelectedViewController:self.blogListSplitViewController];
-
+        
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(updateIconIndicators:)
                                                      name:NSNotification.ZendeskPushNotificationReceivedNotification
@@ -200,6 +202,10 @@ static CGFloat const WPTabBarIconSize = 32.0f;
     if (blogToOpen) {
         _blogListViewController.selectedBlog = blogToOpen;
     }
+    
+    if ([Feature enabled:FeatureFlagFloatingCreateButton]) {
+        [self.createButtonCoordinator addTo:_blogListNavigationController.view trailingAnchor:_blogListNavigationController.view.safeAreaLayoutGuide.trailingAnchor bottomAnchor:_blogListNavigationController.view.safeAreaLayoutGuide.bottomAnchor];
+    }
 
     return _blogListNavigationController;
 }
@@ -207,8 +213,11 @@ static CGFloat const WPTabBarIconSize = 32.0f;
 - (UINavigationController *)readerNavigationController
 {
     if (!_readerNavigationController) {
-        _readerNavigationController = [[UINavigationController alloc] initWithRootViewController:self.readerMenuViewController];
-
+        if ([Feature enabled:FeatureFlagNewReaderNavigation]) {
+            _readerNavigationController = [[UINavigationController alloc] initWithRootViewController:self.readerTabViewController];
+        } else {
+            _readerNavigationController = [[UINavigationController alloc] initWithRootViewController:self.readerMenuViewController];
+        }
         _readerNavigationController.navigationBar.translucent = NO;
 
         UIImage *readerTabBarImage = [UIImage imageNamed:@"icon-tab-reader"];
@@ -263,7 +272,7 @@ static CGFloat const WPTabBarIconSize = 32.0f;
     
     return _meNavigationController;
 }
-
+//TODO: remove when the new Me navigation is ready
 - (MeViewController *)meViewController {
     if (!_meViewController) {
         _meViewController = [MeViewController new];
@@ -312,7 +321,7 @@ static CGFloat const WPTabBarIconSize = 32.0f;
     if (iPhoneLandscape || iPadPortraitFullscreen || iPadLandscapeGreaterThanHalfSplit) {
         self.newPostViewController.tabBarItem.imageInsets = UIEdgeInsetsZero;
         self.newPostViewController.tabBarItem.titlePositionAdjustment = UIOffsetZero;
-        self.newPostViewController.tabBarItem.image = [Gridicon iconOfType:GridiconTypeCreate withSize:CGSizeMake(WPTabBarIconSize, WPTabBarIconSize)];
+        self.newPostViewController.tabBarItem.image = [UIImage gridiconOfType:GridiconTypeCreate withSize:CGSizeMake(WPTabBarIconSize, WPTabBarIconSize)];
     } else {
         self.newPostViewController.tabBarItem.imageInsets = [self tabBarIconImageInsets];
         self.newPostViewController.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, 99999.0);
@@ -377,6 +386,12 @@ static CGFloat const WPTabBarIconSize = 32.0f;
     return _readerSplitViewController;
 }
 
+- (ReaderTabViewController *)readerTabViewController
+{
+    ReaderTabViewController *readerTabViewController = [self makeReaderTabViewController];
+    return readerTabViewController;
+}
+
 - (UISplitViewController *)meSplitViewController
 {
     if (!_meSplitViewController) {
@@ -416,9 +431,9 @@ static CGFloat const WPTabBarIconSize = 32.0f;
     _meSplitViewController = nil;
     _notificationsNavigationController = nil;
     _notificationsSplitViewController = nil;
-
+    
     [self setViewControllers:[self tabViewControllers]];
-
+    
     // Reset the selectedIndex to the default MySites tab.
     self.selectedIndex = WPTabMySites;
 }
@@ -448,16 +463,43 @@ static CGFloat const WPTabBarIconSize = 32.0f;
                                                 readerMenuViewController:self.readerMenuViewController];
 }
 
+- (CreateButtonCoordinator *)createButtonCoordinator
+{
+    if (!_createButtonCoordinator) {
+        __weak __typeof(self) weakSelf = self;
+        _createButtonCoordinator = [[CreateButtonCoordinator alloc] init:self newPost:^{
+            [weakSelf dismissViewControllerAnimated:true completion:nil];
+            [weakSelf showPostTab];
+        } newPage:^{
+            [weakSelf dismissViewControllerAnimated:true completion:nil];
+            Blog *blog = [weakSelf currentOrLastBlog];
+            [weakSelf showPageEditorForBlog:blog];
+        }];
+    }
+    
+    return _createButtonCoordinator;
+}
+
 #pragma mark - Navigation Helpers
 
 - (NSArray<UIViewController *> *)tabViewControllers
 {
     
-    NSMutableArray<UIViewController *> *allViewControllers = [NSMutableArray arrayWithArray:@[self.blogListSplitViewController,
-                                                        self.readerSplitViewController,
-                                                        self.newPostViewController,
-                                                        self.meSplitViewController,
-                                                        self.notificationsSplitViewController]];
+    NSMutableArray<UIViewController *> *allViewControllers;
+    if ([Feature enabled:FeatureFlagNewReaderNavigation]) {
+        allViewControllers = [NSMutableArray arrayWithArray:@[self.blogListSplitViewController,
+        self.readerNavigationController,
+        self.newPostViewController,
+        self.meSplitViewController,
+        self.notificationsSplitViewController]];
+    } else {
+        allViewControllers = [NSMutableArray arrayWithArray:@[self.blogListSplitViewController,
+        self.readerSplitViewController,
+        self.newPostViewController,
+        self.meSplitViewController,
+        self.notificationsSplitViewController]];
+    }
+
     
     if ([Feature enabled:FeatureFlagFloatingCreateButton]) {
         [allViewControllers removeObject:self.newPostViewController];
@@ -465,6 +507,9 @@ static CGFloat const WPTabBarIconSize = 32.0f;
 
     if ([Feature enabled:FeatureFlagMeMove]) {
         [allViewControllers removeObject:self.meSplitViewController];
+        self.meSplitViewController = nil;
+        self.meNavigationController = nil;
+        self.meViewController = nil;
     }
 
     return allViewControllers;
@@ -559,13 +604,7 @@ static CGFloat const WPTabBarIconSize = 32.0f;
     }
 
     if (!blog) {
-        blog = [self currentlyVisibleBlog];
-
-        if (blog == nil) {
-            NSManagedObjectContext *context = [[ContextManager sharedInstance] mainContext];
-            BlogService *blogService = [[BlogService alloc] initWithManagedObjectContext:context];
-            blog = [blogService lastUsedOrFirstBlog];
-        }
+        blog = [self currentOrLastBlog];
     }
 
     EditPostViewController* editor = [[EditPostViewController alloc] initWithBlog:blog];
@@ -573,9 +612,10 @@ static CGFloat const WPTabBarIconSize = 32.0f;
     editor.showImmediately = !animated;
     editor.openWithMediaPicker = openToMedia;
     editor.afterDismiss = afterDismiss;
-    [WPAppAnalytics track:WPAnalyticsStatEditorCreatedPost withProperties:@{ @"tap_source": @"tab_bar"} withBlog:blog];
+    
+    NSString *tapSource = [Feature enabled:FeatureFlagFloatingCreateButton] ? @"create_button" : @"tab_bar";
+    [WPAppAnalytics track:WPAnalyticsStatEditorCreatedPost withProperties:@{ @"tap_source": tapSource, WPAppAnalyticsKeyPostType: @"post"} withBlog:blog];
     [self presentViewController:editor animated:NO completion:nil];
-    return;
 }
 
 - (void)showReaderTabForPost:(NSNumber *)postId onBlog:(NSNumber *)blogId
@@ -767,13 +807,26 @@ static CGFloat const WPTabBarIconSize = 32.0f;
     return blogDetailsController.blog;
 }
 
+- (Blog *)currentOrLastBlog
+{
+    Blog *blog = [self currentlyVisibleBlog];
+
+    if (blog == nil) {
+        NSManagedObjectContext *context = [[ContextManager sharedInstance] mainContext];
+        BlogService *blogService = [[BlogService alloc] initWithManagedObjectContext:context];
+        blog = [blogService lastUsedOrFirstBlog];
+    }
+    
+    return blog;
+}
+
 #pragma mark - UITabBarControllerDelegate methods
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
-    NSUInteger newIndex = [tabBarController.viewControllers indexOfObject:viewController];
+    NSUInteger selectedIndex = [tabBarController.viewControllers indexOfObject:viewController];
 
-    newIndex = [self adjustedTabIndex:newIndex toTabType:false];
+    NSUInteger newIndex = [self adjustedTabIndex:selectedIndex toTabType:false];
 
     if (newIndex == WPTabNewPost) {
         [self showPostTab];
@@ -781,7 +834,7 @@ static CGFloat const WPTabBarIconSize = 32.0f;
     }
 
     // If we're selecting a new tab...
-    if (newIndex != tabBarController.selectedIndex) {
+    if (selectedIndex != tabBarController.selectedIndex) {
         switch (newIndex) {
             case WPTabMySites: {
                 [self bypassBlogListViewControllerIfNecessary];
@@ -876,7 +929,7 @@ static CGFloat const WPTabBarIconSize = 32.0f;
     // Discount Zendesk unread notifications when determining if we need to show the notificationsTabBarImageUnread.
     NSInteger count = [[UIApplication sharedApplication] applicationIconBadgeNumber] - [ZendeskUtils unreadNotificationsCount];
     UITabBarItem *notificationsTabBarItem = self.notificationsNavigationController.tabBarItem;
-    if (count > 0) {
+    if (count > 0 || ![self welcomeNotificationSeen]) {
         notificationsTabBarItem.image = self.notificationsTabBarImageUnread;
         notificationsTabBarItem.accessibilityLabel = NSLocalizedString(@"Notifications Unread", @"Notifications tab bar item accessibility label, unread notifications state");
     } else {
@@ -898,6 +951,13 @@ static CGFloat const WPTabBarIconSize = 32.0f;
     if( UIApplication.sharedApplication.isCreatingScreenshots ) {
         [self hideReaderBadge:nil];
     }
+}
+
+-(BOOL) welcomeNotificationSeen
+{
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *welcomeNotificationSeenKey = standardUserDefaults.welcomeNotificationSeenKey;
+    return [standardUserDefaults boolForKey: welcomeNotificationSeenKey];
 }
 
 - (void) hideReaderBadge:(NSNotification *)notification
@@ -960,10 +1020,6 @@ static CGFloat const WPTabBarIconSize = 32.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self startObserversForTabAccessTracking];
-    
-    if ([Feature enabled:FeatureFlagFloatingCreateButton]) {
-        [self addFloatingButton];
-    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -989,6 +1045,7 @@ static CGFloat const WPTabBarIconSize = 32.0f;
 
 - (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
+    [self.createButtonCoordinator presentingTraitCollectionWillChange:self.traitCollection newTraitCollection:newCollection];
     [super willTransitionToTraitCollection:newCollection withTransitionCoordinator:coordinator];
 }
 
@@ -1003,5 +1060,4 @@ static CGFloat const WPTabBarIconSize = 32.0f;
 
     return nil;
 }
-
 @end

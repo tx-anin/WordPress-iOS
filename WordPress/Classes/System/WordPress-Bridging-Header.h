@@ -47,7 +47,6 @@
 #import "PostContentProvider.h"
 #import "PostListFooterView.h"
 #import "PostMetaButton.h"
-#import "PostPreviewViewController.h"
 #import "PostService.h"
 #import "PostServiceOptions.h"
 #import "PostSettingsViewController.h"
@@ -55,7 +54,6 @@
 #import "WPProgressTableViewCell.h"
 #import "PostTag.h"
 #import "PostTagService.h"
-#import "PrivateSiteURLProtocol.h"
 
 #import "ReachabilityUtils.h"
 #import "ReaderCommentsViewController.h"
