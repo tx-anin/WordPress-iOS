@@ -41,7 +41,7 @@ class UIView_ExistingConstraints: XCTestCase {
 
         XCTAssertEqual(expectedConstraint.constant, 10)
 
-        childView.updateConstraint(for: .height, withRelation: .equal, setConstant: 20, setActive: true)
+        childView.updateConstraint(setConstant: 20, setActive: true)
 
         XCTAssertEqual(childView.constraint(for: .height, withRelation: .equal)!.constant, 20)
     }
@@ -56,7 +56,7 @@ class UIView_ExistingConstraints: XCTestCase {
 
         XCTAssertNil(childView.constraint(for: .height, withRelation: .equal))
 
-        childView.updateConstraint(for: .height, withRelation: .equal, setConstant: 20, setActive: true)
+        childView.updateConstraint(setConstant: 20, setActive: true)
 
         XCTAssertEqual(childView.constraint(for: .height, withRelation: .equal)!.constant, 20)
     }
