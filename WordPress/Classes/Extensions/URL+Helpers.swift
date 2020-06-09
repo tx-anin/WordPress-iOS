@@ -82,16 +82,6 @@ extension URL {
         }
     }
 
-    var mimeType: String {
-        guard let uti = typeIdentifier,
-            let mimeType = UTTypeCopyPreferredTagWithClass(uti as CFString, kUTTagClassMIMEType)?.takeUnretainedValue() as String?
-            else {
-                return "application/octet-stream"
-        }
-
-        return mimeType
-    }
-
     var isVideo: Bool {
         guard let uti = typeIdentifier else {
             return false
