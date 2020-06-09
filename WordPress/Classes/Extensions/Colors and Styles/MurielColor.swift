@@ -65,7 +65,6 @@ struct MurielColor {
     static let primary = MurielColor(name: .blue)
     static let success = MurielColor(name: .green)
     static let text = MurielColor(name: .gray, shade: .shade80)
-    static let textSubtle = MurielColor(name: .gray, shade: .shade50)
     static let warning = MurielColor(name: .yellow)
 
     /// The full name of the color, with required shade value
