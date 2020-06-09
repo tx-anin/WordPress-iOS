@@ -12,14 +12,6 @@ extension BlogSettings {
         case fromKnownUsers = 1
         case everything     = 2
 
-
-        /// Returns the localized description of the current enum value
-        ///
-        var description: String {
-            return CommentsAutoapproval.descriptionMap[rawValue]!
-        }
-
-
         /// Returns the sorted collection of all of the Localized Enum Titles.
         /// Order is guarranteed to match exactly with *allValues*.
         ///
@@ -130,13 +122,6 @@ extension BlogSettings {
             case .enabled(let depth):
                 return depth
             }
-        }
-
-
-        /// Returns the localized description of the current enum value
-        ///
-        var description: String {
-            return CommentsThreading.descriptionMap[rawValue]!
         }
 
 
