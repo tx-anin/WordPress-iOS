@@ -4,10 +4,6 @@ import CoreData
 
 extension ReferrerStatsRecordValue {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<ReferrerStatsRecordValue> {
-        return NSFetchRequest<ReferrerStatsRecordValue>(entityName: "ReferrerStatsRecordValue")
-    }
-
     @NSManaged public var iconURLString: String?
     @NSManaged public var label: String?
     @NSManaged public var urlString: String?
