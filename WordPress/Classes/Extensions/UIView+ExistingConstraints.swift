@@ -19,12 +19,10 @@ extension UIView {
     /// exists it will be updated, but if it doesn't it will be added.
     ///
     /// - Parameters:
-    ///     - axis: the axis for the first element in the constraint.  This is part of the matching criteria.
-    ///     - relation: the relation for the constraint.  This is part of the matching criteria.
     ///     - constant: the new constant for the constraint.
     ///     - active: whether the constraint must be activated or deactivated.
     ///
-    func updateConstraint(for axis: NSLayoutConstraint.Attribute, withRelation relation: NSLayoutConstraint.Relation, setConstant constant: CGFloat, setActive active: Bool) {
+    func updateConstraint(setConstant constant: CGFloat, setActive active: Bool) {
 
         if let existingConstraint = constraint(for: .height, withRelation: .equal) {
             existingConstraint.constant = constant
