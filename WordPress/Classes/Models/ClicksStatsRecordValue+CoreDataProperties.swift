@@ -4,10 +4,6 @@ import CoreData
 
 extension ClicksStatsRecordValue {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<ClicksStatsRecordValue> {
-        return NSFetchRequest<ClicksStatsRecordValue>(entityName: "ClicksStatsRecordValue")
-    }
-
     @NSManaged public var clicksCount: Int64
     @NSManaged public var label: String?
     @NSManaged public var urlString: String?
