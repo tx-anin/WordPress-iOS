@@ -2240,7 +2240,6 @@
 		FF5371631FDFF64F00619A3F /* MediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5371621FDFF64F00619A3F /* MediaService.swift */; };
 		FF54D4641D6F3FA900A0DC4D /* GutenbergSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF54D4631D6F3FA900A0DC4D /* GutenbergSettings.swift */; };
 		FF619DD51C75246900903B65 /* CLPlacemark+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF619DD41C75246900903B65 /* CLPlacemark+Formatting.swift */; };
-		FF70A3221FD5840500BC270D /* PHAsset+Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF70A3201FD5840500BC270D /* PHAsset+Metadata.swift */; };
 		FF70A3231FD5840500BC270D /* UIImage+Export.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF70A3211FD5840500BC270D /* UIImage+Export.swift */; };
 		FF75933B1BE2423800814D3B /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF75933A1BE2423800814D3B /* Photos.framework */; };
 		FF7C89A31E3A1029000472A8 /* MediaLibraryPickerDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C89A21E3A1029000472A8 /* MediaLibraryPickerDataSourceTests.swift */; };
@@ -4887,7 +4886,6 @@
 		FF54D4631D6F3FA900A0DC4D /* GutenbergSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GutenbergSettings.swift; sourceTree = "<group>"; };
 		FF619DD41C75246900903B65 /* CLPlacemark+Formatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLPlacemark+Formatting.swift"; sourceTree = "<group>"; };
 		FF695E151B87662500CD6EAA /* WordPress 38.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "WordPress 38.xcdatamodel"; sourceTree = "<group>"; };
-		FF70A3201FD5840500BC270D /* PHAsset+Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAsset+Metadata.swift"; sourceTree = "<group>"; };
 		FF70A3211FD5840500BC270D /* UIImage+Export.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Export.swift"; sourceTree = "<group>"; };
 		FF75933A1BE2423800814D3B /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		FF7C89A21E3A1029000472A8 /* MediaLibraryPickerDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLibraryPickerDataSourceTests.swift; sourceTree = "<group>"; };
@@ -8958,7 +8956,6 @@
 				B574CE141B5E8EA800A84FFD /* NSMutableAttributedString+Helpers.swift */,
 				B5BE31C31CB825A100BDF770 /* NSURLCache+Helpers.swift */,
 				E1CFC1561E0AC8FF001DF9E9 /* Pattern.swift */,
-				FF70A3201FD5840500BC270D /* PHAsset+Metadata.swift */,
 				FFD12D5D1FE1998D00F20A00 /* Progress+Helpers.swift */,
 				E177807F1C97FA9500FA7E14 /* StoreKit+Debug.swift */,
 				7360018E20A265C7001E5E31 /* String+Files.swift */,
@@ -12331,7 +12328,6 @@
 				D82253DF2199418B0014D0E2 /* WebAddressWizardContent.swift in Sources */,
 				400A2C782217A8A0000A8A59 /* VisitsSummaryStatsRecordValue+CoreDataProperties.swift in Sources */,
 				D853723C21952DC90076F461 /* SiteSegmentsStep.swift in Sources */,
-				FF70A3221FD5840500BC270D /* PHAsset+Metadata.swift in Sources */,
 				5DA5BF4418E32DCF005F11F9 /* Theme.m in Sources */,
 				D8A3A5B1206A49A100992576 /* StockPhotosMediaGroup.swift in Sources */,
 				7E4123BC20F4097B00DF8486 /* DefaultFormattableContentAction.swift in Sources */,
