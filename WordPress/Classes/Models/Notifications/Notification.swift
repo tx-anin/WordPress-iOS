@@ -377,13 +377,10 @@ extension Notification {
     ///
     fileprivate enum MetaKeys {
         static let Ids      = "ids"
-        static let Links    = "links"
-        static let Titles   = "titles"
         static let Site     = "site"
         static let Post     = "post"
         static let Comment  = "comment"
         static let Reply    = "reply_comment"
-        static let Home     = "home"
     }
 }
 
