@@ -23,7 +23,6 @@ class ManagedDomain: NSManagedObject {
     struct Attributes {
         static let domainName = "domainName"
         static let isPrimary = "isPrimary"
-        static let domainType = "domainType"
     }
 
     struct Relationships {
