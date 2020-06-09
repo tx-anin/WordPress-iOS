@@ -4,10 +4,6 @@ import CoreData
 
 extension AnnualAndMostPopularTimeStatsRecordValue {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<AnnualAndMostPopularTimeStatsRecordValue> {
-        return NSFetchRequest<AnnualAndMostPopularTimeStatsRecordValue>(entityName: "AnnualAndMostPopularTimeStatsRecordValue")
-    }
-
     @NSManaged public var mostPopularDayOfWeek: Int64
     @NSManaged public var mostPopularDayOfWeekPercentage: Int64
     @NSManaged public var mostPopularHour: Int64
