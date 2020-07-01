@@ -1,15 +1,12 @@
-Blok baru! Sambut blok Pos Terbaru, untuk menyoroti item baru Anda di pos dan halaman.
+Fakta: GIF membuat internet menjadi lebih baik. Kini Anda dapat mengakses pustaka GIF gratis, melalui Tenor, untuk menambahkannya ke pos atau halaman apapun menggunakan blok Gambar. Anda bahkan akan langsung melihat animasinya di editor saat Anda membuatnya!
 
-Saat Anda membuat halaman baru, kami akan menampilkan beberapa template — pilih satu, dan kami akan menambahkan semua blok yang dibutuhkan ke halaman Anda agar Anda dapat memulai halaman dengan cepat.
+Editor Blok memiliki serangkaian peningkatan lainnya:
+– Dukungan untuk warna dan gradien berdasarkan tema di blok Sampul,
+– Kemampuan untuk mengunggah video ke blok Sampul, bahkan jika editornya ditutup.
+– Dan pembaruan favorit kami: peningkatan kontrol keterangan dan kutipan. Tekan tombol enter setelah menambahkan keterangan di blok Gambar, Video, Galeri, Kutipan, atau Kutipan Besar dan Anda akan secara otomatis berada di blok baru.
 
-Kami memperbaiki beberapa masalah penyunting blok, tak ada lagi crash saat menempel di konten HTML ataupun tepi blok Kutipan yang tidak muncul di Mode Gelap.
+Bersamaan dengan pembaruan tersebut, kini Anda dapat memilih halaman untuk digunakan sebagai halaman beranda dan halaman pos langsung dari daftar Halaman dan terdapat tombol pengalih di tingkat aplikasi untuk memilih tampilan gelap atau terang.
 
-Jika Anda menjadwalkan pos untuk dipublikasikan di masa lalu, itu akan ditampilkan sebagai “dijadwalkan” bukan “dipublikasikan”. Telah diperbaiki, bersama dengan masalah tanggal yang tidak ditampilkan secara tepat jika zona waktu situs Anda tidak sama dengan zona waktu perangkat.
+Kami mengetahui bahwa terdapat kesalahan penghitungan tanggal Pos Terbaru di halaman Wawasan. Sudah kami perbaiki!
 
-Kami memperbaiki beberapa UI yang tidak konsisten di Mode Gelap dan dengan bilah peralatan Pembaca.
-
-Anda dapat menggunakan @-sebut saat menulis komentar di mode layar penuh.
-
-Terkadang email Tautan Ajaib Daftar dan Login akan masuk ke folder spam, sehingga kami menambahkan catatan ke layar konfirmasi untuk menyarankan pengguna agar memeriksa folder spam/sampah mereka jika tidak kunjung menemukan emailnya.
-
-Selalu jaga kesehatan, semuanya.
+Beberapa masalah dalam tur Mulai Cepat membuatnya menjadi sedikit kurang cepat. Kami memperbaiki beberapa masalah alur di tur "Tingkatkan Audiens Anda" dan "Publikasikan Pos" dan memperbaiki bug yang menyebabkan pengguna VoiceOver tidak mendapatkan pembaruan tentang tugas Mulai Cepat yang sudah selesai. (Dan pengguna VoiceOver: bagian Langkah Berikutnya sekarang mendukung VoiceOver.)

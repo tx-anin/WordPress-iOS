@@ -1,15 +1,12 @@
-Neue Blöcke! Willkommen beim Block „Letzte Beiträge“, um deine neuen Beiträge und Seiten hervorzuheben.
+Es ist einfach so: GIFs machen das Internet besser. Du hast jetzt über Tenor Zugriff auf eine Bibliothek mit kostenlosen GIFs, die du jedem Beitrag oder jeder Seite mithilfe eines Bild-Blocks hinzufügen kannst. Die Animation wird sogar beim Erstellen direkt im Editor angezeigt.
 
-Wenn du eine neue Seite erstellst, zeigen wir dir ein paar Vorlagen. Wähle eine aus und wir fügen alle notwendigen Blöcke zu deiner Seite hinzu, damit du schnell damit beginnen kannst.
+Der Block-Editor weist eine weitere Reihe von Verbesserungen auf:
+– Unterstützung für Theme-definierte Farben und Farbverläufe im Cover-Block
+– Die Möglichkeit, Videos zu Cover-Blocks hochzuladen, auch wenn der Editor geschlossen ist
+– Und unsere wichtigste Aktualisierung: verbesserte Verarbeitung von Beschriftungen und Zitaten Wenn du nach dem Hinzufügen von Beschriftungen in Bild-, Video-, Galerie-, Zitat- und Pullquote-Blöcken die Eingabetaste drückst, wird der Cursor automatisch in einem neuen Block positioniert.
 
-Wir haben ein paar Probleme mit dem Block-Editor behoben: keine Abstürze mehr beim Einfügen von HTML-Inhalten bzw. keine fehlenden Ränder mehr bei Zitat-Blöcken im dunklen Modus.
+Zusätzlich zu diesen Aktualisierungen kannst du jetzt direkt in der Seiten-Liste auswählen, welche Seiten du als deine Startseiten und Beitragsseite verwenden möchtest. Und es gibt einen Schalter auf App-Ebene, um zwischen hellem und dunklem Design zu wählen.
 
-Wenn du zuvor einen Beitrag zur Veröffentlichung geplant hast, würde er als „geplant“ anstatt als „veröffentlicht“ angezeigt. Das wurde behoben. Ebenso ein Problem, bei dem Datumsangaben nicht korrekt angezeigt wurden, wenn die Zeitzone der Website nicht mit der Zeitzone des Geräts übereinstimmte.
+Wir wissen, dass das Datum der letzten Beiträge auf der Einsichten-Seite falsch berechnet wurde. Dies wurde nun behoben!
 
-Wir haben ein paar UI-Inkonsistenzen im dunklen Modus und bei der Reader-Werkzeugleiste behoben.
-
-Du kannst @-Erwähnungen verwenden, wenn du Kommentare im Vollbildmodus erstellst.
-
-Manchmal landeten E-Mails mit magischen Registrierungs- und Anmeldelinks in deinem Spam-Ordner. Deshalb haben wir auf dem Bestätigungsbildschirm den Hinweis hinzugefügt, im Spam- oder Junk-Mail-Ordner nachzusehen, wenn die E-Mail nicht sofort gefunden wird.
-
-Bleibt alle gesund.
+Ein paar Probleme bei Schnellstart-Touren haben dazu geführt, dass diese etwas langsamer waren. Wir haben einige Vorgangsprobleme in den Touren „Zielgruppe vergrößern“ und „Einen Beitrag veröffentlichen“ behoben und einen Fehler korrigiert, der dafür sorgte, dass VoiceOver-Kunden keine Updates zu abgeschlossenen Schnellstart-Aufgaben erhielten. (Und für alle VoiceOver-Benutzer: VoiceOver wird jetzt auch vom Abschnitt „Nächste Schritte“ unterstützt.)

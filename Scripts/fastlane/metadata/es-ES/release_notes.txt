@@ -1,15 +1,12 @@
-¡Nuevos bloques! Bienvenido al bloque de últimas entradas, para resaltar tus nuevas cosas en las entradas y páginas.
+Es un hecho: Los GIFs hacen una Internet mejor. Ahora tienes acceso a una biblioteca de GIFs gratuitos, desde Tenor, para añadir a cualquier entrada o página usando un bloque de imagen. ¡Verás incluso la animación a la derecha del editor, mientras creas!
 
-Cuando crees una nueva página, te mostraremos unas cuantas plantillas — elige una y añadiremos todos los bloques necesarios a tu página para que puedas empezar rápidamente.
+El editor de bloques tiene otro montón de mejoras:
+– Compatibilidad con los colores y gradientes definidos y por el tema del bloque de fondo,
+– Posibilidad de subir vídeos a los bloques de fondo, aunque esté cerrado el editor.
+– Y nuestra actualización favorita: mejora en la gestión de leyendas y citas. Pulsa intro después de añadir una leyenda en una imagen, vídeo, galería, cita o bloque de cita, y descubrirás que estás automáticamente en otro bloque.
 
-Hemos corregido algunos problemas del editor de bloques; ya no se producen más conflictos al pegar contenido HTML o la falta de los bordes del bloque de citas en el modo oscuro.
+Además de estas actualizaciones, ahora puedes elegir qué páginas usar como página de inicio y página de entradas desde la lista de páginas, y hay un conmutador en la aplicación para elegir entre el aspecto claro u oscuro.
 
-Si habías programado la publicación de una entrada en el pasado, se mostraba como «programada» en lugar de «publicada». Eso está corregido, junto con un problema por el que las fechas se mostraban incorrectamente si la zona horaria de tu sitio no era la misma que la de tu dispositivo.
+Sabemos que la fecha de las últimas entradas se estaba calculando incorrectamente en la página de estadísticas. ¡Eso ya está corregido!
 
-Hemos corregido algunas inconsistencias de la interfaz de usuario en el modo oscuro y con la barra de herramientas del lector.
-
-Puedes usar @-menciones cuando escribas comentarios en modo de pantalla completa.
-
-A veces, los correos electrónicos de registro y de acceso de Magic Link iban a tu carpeta de spam, por lo que hemos añadido una nota en la pantalla de confirmación sugiriendo que la gente compruebe sus carpetas de spam/basura si no ven el correo electrónico rápidamente.
-
-Ten cuidado, todos.
+Unos pocos problemas con las visitas guiadas de inicio las hacía menos rápidas. Hemos corregido algunos problemas de flujo en las visitas de «Haz crecer tu audiencia» y «Publica una entrada»,  y se ha arreglado un fallo que evitaba que los usuarios de VoiceOver obtuviesen actualizaciones sobre las tareas del inicio rápido. (Y para los usuarios de VoiceOver: la sección de nuevos pasos ahora también es compatible con VoiceOver.)

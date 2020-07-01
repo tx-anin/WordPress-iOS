@@ -1,15 +1,12 @@
-De nouveaux blocs ! Bienvenue au bloc « Derniers articles » pour mettre en évidence vos nouvelles infos dans les articles et les pages.
+C’est un fait : Les GIF rendent l’internet plus fun. Vous avez maintenant accès à une bibliothèque de GIF gratuites, via Tenor, pour ajouter un bloc image à n’importe quel article ou page.
 
-Lorsque vous créerez une nouvelle page, nous vous afficherons quelques modèles. Choisissez-en un et nous ajouterons tous les blocs nécessaires à votre page pour vous permettre de démarrer plus rapidement.
+L’éditeur de bloc a un autre lots d’améliorations :
+– support des couleurs et dégradés définis par le thème dans le bloc Bannière,
+– possibilité de téléverser des vidéos au bloc Bannière, même si l’éditeur est fermé.
+– et notre mise à jour favorite : amélioration de la manipulation des légendes et citations. Pressez Entrée après avoir ajouté une légende dans une image, vidéo, galerie, citation ou citation en exergue et vous vous retrouverez automatiquement dans un nouveau bloc.
 
-Nous avons corrigé quelques problèmes de l’éditeur de blocs ; plus de plantage lors d’un collage de contenu HTML ou de bordures manquantes de bloc de citation en mode foncé.
+En plus de ces mises à jour, vous pouvez maintenant choisir les pages à utiliser comme page d’accueil et comme page de messages directement à partir de la liste des pages, et il y a un commutateur au niveau de l’application pour choisir entre l'apparence claire ou sombre.
 
-Si vous planifiez un article à publier dans le passé, il s’affichera comme « planifié » à la place de « publié ». C’est corrigé ainsi qu’un problème où les dates ne s’affichaient pas correctement si le fuseau horaire de votre site n’était pas le même que celui de votre appareil.
+Nous savons que la date du dernier courrier était mal calculée sur la page Thématiques. C’est réglé !
 
-Nous avons corrigé quelques incohérences visuelles en mode foncé et avec la barre d’outil du Lecteur.
-
-Vous pouvez utiliser les mentions « @ » quand vous écrivez des commentaires en plein écran.
-
-Parfois les e-mails d’inscription et de connexion par lien magique allaient dans les indésirables, nous avons ajouté une note à l’écran de confirmation vous suggérant de vérifier vos indésirables si vous ne voyez pas cet e-mail rapidement.
-
-Portez-vous bien !
+Quelques problèmes avec les guides de démarrage rapide les rendaient un peu moins rapides. Nous avons corrigé quelques problèmes de flux dans les guides « Faites grandir votre audience » et « Publier un article » et dégagé un bug qui empêchait les utilisateurs de VoiceOver d’obtenir les mises à jour sur les tâches de démarrage rapide terminées. (Et pour les utilisateurs de VoiceOver : la section Prochaines étapes prend maintenant en charge VoiceOver)

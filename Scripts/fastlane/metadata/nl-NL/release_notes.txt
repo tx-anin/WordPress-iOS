@@ -1,15 +1,12 @@
-Nieuwe blokken! Welkom bij het blok Nieuwste berichten, waar je je nieuwe content kunt laten opvallen in berichten en op pagina's.
+Het is een feit: GIF's leiden tot een beter internet. Je hebt nu toegang tot een bibliotheek met gratis GIF's via Tenor om aan elk bericht of elke pagina toe te voegen door middel van een Afbeeldingblok. Je ziet de animatie zelfs rechtstreeks in de editor terwijl je deze aanmaakt!
 
-Wanneer je een nieuwe pagina aanmaakt, laten we je een paar sjablonen zien. Kies er een en wij voegen dan alle benodigde blokken toe aan je pagina zodat je snel aan de slag kunt gaan.
+De blokeditor heeft nog een aantal verbeteringen gekregen:
+– Ondersteuning voor thema-gebaseerde kleuren en gradiënten in het Omslagblok,
+– De mogelijkheid om video's te uploaden naar Omslagblokken, zelfs als de editor gesloten is.
+– En onze favoriete update: verbeteringen in het gebruik van bijschriften en citaten. Door op enter te drukken na het toevoegen van een bijschrift aan een Afbeelding-, Video-, Galerij-, Citaat- of Pullquote-blok wordt er automatisch een nieuw blok aangemaakt.
 
-We hebben een paar problemen met de blok-editor verholpen. De app zou nu niet meer moeten crashen wanneer je HTML-content plakt en er zullen geen randen van citaatblokken meer ontbreken in de Nachtmodus.
+Naast deze updates kun je nu direct vanuit de lijst Pagina's kiezen welke pagina's je wilt gebruiken als je homepage en berichtenpagina, en er is een schakelaar toegevoegd waarmee je kunt kiezen uit lichte of donkere weergave.
 
-Als je voorheen berichten inplande voor publicatie, werden ze weergegeven als 'gepland' in plaats van als 'gepubliceerd'. Dat probleem is opgelost, net als het probleem waarbij data onjuist werden weergegeven als de tijdzone van je site niet hetzelfde was als de tijdzone van je apparaat.
+We weten dat de datum van Nieuwste bericht verkeerd werd berekend op de pagina Inzichten. Dat is nu opgelost!
 
-We hebben UI-inconsistenties opgemerkt in de Nachtmodus en met de Reader-werkbalk.
-
-Je kunt @-verwijzingen gebruiken wanneer je reacties schrijft in de weergave op volledig scherm.
-
-Soms werden e-mails om aan te melden en in te loggen via magische links naar je map met ongewenste e-mail verplaatst. Daarom hebben we een opmerking aan het bevestigingsscherm toegevoegd waarin staat dat je je mappen Spam/Ongewenste e-mail moet controleren als je de e-mail niet snel ontvangt.
-
-Blijf veilig allemaal.
+Een paar problemen met de Snelstart-rondleidingen maakten ze iets langzamer. We hebben een paar problemen opgelost bij het doorlopen van de rondleidingen 'Je bezoekersaantallen verhogen' en 'Een bericht publiceren' en hebben een bug verwijderd die voorkwam dat VoiceOver-gebruikers updates ontvingen over voltooide Snelstart-taken. (En VoiceOver-gebruikers: het gedeelte Volgende stappen ondersteunt nu ook VoiceOver.)

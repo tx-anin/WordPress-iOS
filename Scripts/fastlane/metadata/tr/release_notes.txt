@@ -1,15 +1,12 @@
-Yeni bloklar! Güncel yazılar bloğuna hoş geldin diyoruz, yeni yazı ve sayfalarınızı vurgulamak için kullanabilirsiniz.
+Bu bir gerçek: GIF'ler interneti daha iyi hale getiriyor. Artık bir görüntü bloğu kullanarak herhangi bir yazıya veya sayfaya eklemek için Tenor aracılığıyla ücretsiz GIF kitaplığına erişebilirsiniz. Animasyonu oluştururken doğrudan düzenleyicide bile göreceksiniz!
 
-Yeni bir sayfa oluşturduğunuzda, bir kaç şablon gösteriyoruz — birini seçin, ve gerekli tüm blokları sayfanıza ekleyerek işe başlamanızı sağlayalım.
+Blok düzenleyicide başka bir iyileştirme toplu işlemi var:
+- Kapak bloğunda tema tanımlı renkler ve degradeler için destek,
+- Editör kapalı olsa bile Kapak bloklarına video yükleme yeteneği.
+- Ve bizim en sevdiğimiz güncelleme: altyazı ve alıntı işleme iyileştirme. Bir görse, video, galeri, alıntı veya tanıtım bloğuna başlık ekledikten sonra enter tuşuna bastığınızda kendinizi otomatik olarak yeni bir blokta bulacaksınız.
 
-Bir kaç blok düzenleyici sorununu düzelttik; HTML içerik yapıştırırken çökmeler ya da koyu modda alıntı bloğunun çerçevesinin olmaması gibi problemlere son.
+Bu güncellemelerin yanı sıra, doğrudan Sayfalar listesinden ana sayfanız ve yazılar sayfanız olarak hangi sayfaların kullanılacağını seçebilirsiniz ve açık veya koyu görünüm arasında seçim yapmak için uygulama düzeyinde geçiş vardır.
 
-Eğer geçmişte bir yazı zamanladıysanız "zamanlanmış" yerine "yayımlanmış" olarak gözüküyordu. Bu düzeltildi, beraberinde sitenin zaman diliminin cihazınızın zaman dilimiyle aynı olmadığı durumlarda ortaya çıkan bir sorun da düzeltildi.
+Son gönderim tarihinin Analizler sayfasında yanlış hesaplandığını biliyoruz. Bu düzeltildi!
 
-Koyu modda ve okuyucu araç çubuğundaki bazı kullanıcı arabirimi uyumsuzluklarını giderdik.
-
-Tam ekran modunda yorum yazarken @-anmalarını kullanabilirsiniz.
-
-Bazen üyelik ve giriş sihirli bağlantı e-postaları istenmeyen postalar arasına gidebiliyor, biz de onaylama ekranına kullanıcıların istenmeyen/önemsiz posta kutularını kontrol etmelerini hatırlatır bir açıklama ekledik.
-
-Herkese sağlık ve güvenlik.
+Hızlı başlangıç ​​turlarıyla ilgili birkaç sorun onları biraz daha az hızlı hale getiriyordu. "Kitlenizi büyütün" ve "Bir yazı yayınlayın" turlarında bazı akış sorunlarını düzelttik ve VoiceOver kullanıcılarının tamamlanmış hızlı başlangıç ​​görevleri hakkında güncelleme almasını engelleyen bir hatayı düzelttik. (Ve VoiceOver kullanıcıları: Sonraki adımlar bölümü artık VoiceOver'ı da destekliyor.)

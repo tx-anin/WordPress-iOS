@@ -1,15 +1,12 @@
-Nuovi blocchi. Dai il benvenuto al blocco Ultimi articoli, per mettere in evidenza nuovi elementi su articoli e pagine.
+È un dato di fatto: le GIF rendono Internet migliore. Ora hai accesso a una libreria di GIF gratuite, tramite Tenor, da aggiungere a qualsiasi articolo o pagina usando il blocco Immagine. Vedrai anche l'animazione direttamente nell'editor mentre stai creando!
 
-Quando crei una nuova pagina, ti mostreremo alcuni modelli: scegline uno e noi aggiungeremo tutti i blocchi necessari alla tua pagina per farti iniziare velocemente.
+L'editor a blocchi ha un'altra serie di miglioramenti:
+- Supporto per colori e sfumature definiti del tema nel blocco Copertina.
+- Possibilità di caricare video sui blocchi Copertina, anche se l'editor è chiuso.
+- Il nostro aggiornamento preferito: miglioramento della gestione di didascalie e citazioni. Premi il tasto per l'inserimento dopo aver aggiunto una didascalia in un blocco Immagine, Video, Galleria, Citazione o Citazione evidenziata e ti ritroverai automaticamente in un nuovo blocco.
 
-Abbiamo risolto alcuni problemi relativi all'editor a blocchi; non si verificano più arresti anomali quando si incollano i contenuti HTML o quando mancano i bordi del blocco Citazione in Dark Mode.
+Insieme a tali aggiornamenti, ora puoi scegliere quali pagine utilizzare come homepage e pagina degli articoli direttamente dall'elenco Pagine ed è presente un interruttore a livello di app per scegliere tra un aspetto chiaro o scuro.
 
-Quando in passato pianificavi la pubblicazione di un articolo, veniva visualizzato come "pianificato" anziché "pubblicato". Questo problema è stato risolto, insieme a un altro che causava la visualizzazione errata delle date venivano visualizzate se il fuso orario del sito non era lo stesso del fuso orario del dispositivo.
+Sappiamo che la data Ultimo articolo è stata calcolata in modo non corretto nella pagina Panoramica. Il problema è stato risolto.
 
-Abbiamo corretto alcune incoerenze nella UI in Dark Mode e nella barra degli strumenti del Reader.
-
-Puoi usare i riferimenti @ quando scrivi commenti in modalità schermo intero.
-
-A volte le e-mail di Accedi e Accesso tramite link finivano nella cartella dello spam, quindi abbiamo aggiunto una nota alla schermata di conferma in cui viene suggerito di controllare le cartelle di spam/posta indesiderata se non visualizzano subito le e-mail.
-
-State tutti al sicuro.
+Alcuni problemi riscontrati con i tour per l'Avvio rapido che ne stavano rallentando leggermente la velocità. Abbiamo risolto alcuni problemi di flusso nei tour "Aumenta il tuo pubblico" e "Pubblica un articolo" ed eliminato un bug che impediva agli utenti di VoiceOver di ottenere aggiornamenti sulle attività di Avvio rapido completate. Premi il tasto per l'inserimento dopo aver aggiunto una didascalia in un blocco Immagine, Video, Galleria, Citazione o Citazione evidenziata e ti ritroverai automaticamente in un nuovo blocco.
