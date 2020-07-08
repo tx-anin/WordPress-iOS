@@ -198,6 +198,11 @@ class ReaderDetailCoordinator {
             return
         }
 
+        guard ReachabilityUtils.isInternetReachable() || post.isSavedForLater else {
+            view?.showError()
+            return
+        }
+
         view?.render(post)
         bumpStats()
         bumpPageViewsForPost()
