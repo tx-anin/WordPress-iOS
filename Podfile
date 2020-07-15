@@ -116,13 +116,19 @@ def gutenberg_dependencies(options)
         'glog',
         'react-native-keyboard-aware-scroll-view',
         'react-native-safe-area',
+        'react-native-safe-area-context',
         'react-native-video',
         'RNSVG',
         'ReactNativeDarkMode',
         'react-native-slider',
         'react-native-linear-gradient',
         'react-native-get-random-values',
-        'react-native-blur'
+        'react-native-blur',
+        'react-native-linear-gradient',
+        'RNScreens',
+        'RNReanimated',
+        'RNGestureHandler',
+        'RNCMaskedView'
     ]
     if options[:path]
         podspec_prefix = options[:path]
@@ -149,7 +155,7 @@ target 'WordPress' do
     ## Gutenberg (React Native)
     ## =====================
     ##
-    gutenberg :commit => '22c541069f39f573c6a784a58f8798094adc3994'
+    gutenberg :commit => '5f82201f3cf7513c15b7e4c4c4d1d61035b06925'
 
     ## Third party libraries
     ## =====================
