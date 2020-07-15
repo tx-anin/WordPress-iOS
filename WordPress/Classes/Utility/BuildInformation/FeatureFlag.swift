@@ -73,13 +73,8 @@ extension FeatureFlag: OverrideableFlag {
             return "Jetpack disconnect"
         case .debugMenu:
             return "Debug menu"
-<<<<<<< HEAD
         case .offlinePages:
             return "Offline Pages"
-        case .postReblogging:
-            return "Post Reblogging"
-=======
->>>>>>> develop
         case .unifiedAuth:
             return "Unified Auth"
         case .unifiedSiteAddress:
